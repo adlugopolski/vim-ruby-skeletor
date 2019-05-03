@@ -11,7 +11,7 @@ class Extractor::Runner
   end
 
   def call
-    arg
+    VimR Extractor.call(arg)
   end
 
   private
