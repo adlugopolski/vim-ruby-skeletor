@@ -25,6 +25,8 @@ if has("autocmd")
     autocmd BufNewFile
       \ */app/services/*.rb
       \,*/spec/services/*_spec.rb
+      \,*/app/services/**/*.rb
+      \,*/spec/services/**/*_spec.rb
       \ %substitute#\[:CLASSNAME:\]#
       \\=ExtractClassNameFromFile(expand("%:p"))#g
   augroup END
