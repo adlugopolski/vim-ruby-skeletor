@@ -1,0 +1,124 @@
+require: rubocop-rspec
+
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - app/assets/images/**/*
+    - app/assets/javascripts/**/*
+    - app/view/pages/*
+    - bin/*
+    - Rakefile
+    - config/**/*
+    - notepad/**/*
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb
+    - test/**/*
+    - db/**/*
+    - deploy/*.rb
+    - deploy.rb
+    - app/helpers/bootstrap_flash_helper.rb
+    - app/helpers/bootstrap_deprecated_helper.rb
+    - app/services/stat/reporting/general.rb
+    - .git-hooks/**/*
+    - files/**/*
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/ImplicitExpect:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: true
+  Max: 20
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/controllers/**/*
+    - spec/system/**/*
+    - spec/requests/**/*
+
+Metrics/ModuleLength:
+  Exclude:
+    - app/views/**/*
+    - spec/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - app/views/**/*
+    - spec/**/*
+    - Guardfile
+    - lib/tasks/auto_annotate_models.rake
+
+Metrics/MethodLength:
+  Exclude:
+    - app/models/**/*_scope.rb
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+
+Style/BracesAroundHashParameters:
+  Exclude:
+    - app/views/**/*
+
+OutputSafety:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+  CustomTransform:
+    RuboCop: rubocop
+    RSpec: rspec
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+  ConsistentQuotesInMultiline: true
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: true
+
+RSpec::VerifiedDoubles:
+  Exclude:
+    - spec/models/**/*_scope_spec.rb
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+TrailingCommaInArguments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
