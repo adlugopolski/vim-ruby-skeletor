@@ -2,7 +2,8 @@ require "spec_helper"
 require_relative "../app/underscore.rb"
 
 RSpec.describe Underscore do
-  let(:result) { Sample.call("Some::ClassName") }
+  let(:string) { "Some::ClassName" }
+  let(:result) { Sample.call(string) }
 
   before do
     class Sample
@@ -17,6 +18,14 @@ RSpec.describe Underscore do
   context "with refinement" do
     it "converts the class name to file name" do
       expect(result).to eq "some/class_name"
+    end
+  end
+
+  context "with empty string" do
+    let(:string) { "" }
+
+    it "returns empty string" do
+      expect(result).to eq ""
     end
   end
 
