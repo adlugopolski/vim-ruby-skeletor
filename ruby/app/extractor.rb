@@ -17,7 +17,7 @@ class Extractor
 
   def class_name
     arg
-      .gsub(/^.*\/?app\/[a-z]+\//, "")
+      .gsub(/^.*\/?(app|spec)\/[a-z]+\//, "")
       .gsub(/(_spec)?\.rb$/, "")
       .split("/")
       .map { |name| name.split("_").map(&:capitalize).join }

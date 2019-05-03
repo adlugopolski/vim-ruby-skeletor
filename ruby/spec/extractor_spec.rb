@@ -21,5 +21,21 @@ RSpec.describe Extractor do
         expect(service.call).to eq "Some::CoolObject"
       end
     end
+
+    context "with full spec path" do
+      let(:filepath) { "/root/spec/services/some/cool_object_spec.rb" }
+
+      it "parses argument from vim" do
+        expect(service.call).to eq "Some::CoolObject"
+      end
+    end
+
+    context "with relative spec path" do
+      let(:filepath) { "spec/services/some/cool_object.rb" }
+
+      it "parses argument from vim" do
+        expect(service.call).to eq "Some::CoolObject"
+      end
+    end
   end
 end
