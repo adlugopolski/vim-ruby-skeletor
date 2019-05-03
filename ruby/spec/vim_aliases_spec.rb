@@ -1,17 +1,14 @@
 require "spec_helper"
 require_relative "../app/vim_aliases.rb"
+require_relative "../support/vim.rb"
 
 RSpec.describe "vim_aliases.rb" do
   before do
-    Vim = Class.new
-
     allow(Vim).to receive_messages(
       command: :command,
       evaluate: :evaluate,
     )
   end
-
-  after { Object.send(:remove_const, :Vim) }
 
   describe "VimC" do
     it "runs a command" do
