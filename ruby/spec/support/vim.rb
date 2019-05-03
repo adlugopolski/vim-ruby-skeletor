@@ -1,4 +1,6 @@
 class Vim
-  def evaulate(_data); end
-  def command(_data); end
+  class << self
+    def evaluate(_data); end
+    def command(_data); end
+  end
 end

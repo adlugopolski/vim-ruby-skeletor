@@ -1,6 +1,6 @@
 require "spec_helper"
 require_relative "../app/vim_aliases.rb"
-require_relative "../support/vim.rb"
+require_relative "support/vim.rb"
 
 RSpec.describe "vim_aliases.rb" do
   before do
