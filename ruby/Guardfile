@@ -1,0 +1,18 @@
+# A sample Guardfile
+# More info at https://github.com/guard/guard#readme
+
+GUARD_OPTIONS = {
+  failed_mode: :focus,
+  cmd: "bundle exec rspec --order rand:$RANDOM",
+}.freeze
+
+guard :rspec, GUARD_OPTIONS do
+  directories %w[app spec]
+
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^app/.+\.rb$})
+
+  watch(%r{^app/(.+)\.rb$}) do |m|
+    "spec/#{m[1]}_spec.rb"
+  end
+end
