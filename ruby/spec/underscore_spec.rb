@@ -15,6 +15,8 @@ RSpec.describe Underscore do
     end
   end
 
+  after { Object.send(:remove_const, :Sample) }
+
   context "with refinement" do
     it "converts the class name to file name" do
       expect(result).to eq "some/class_name"
