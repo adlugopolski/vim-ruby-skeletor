@@ -25,10 +25,22 @@ if has("autocmd")
       \ */spec/services/*_spec.rb
       \ 0r
       \ <sfile>:p:h/templates/service_spec.rb
-    
+
+    autocmd BufNewFile
+      \ */app/models/**/*_scope.rb
+      \ 0r
+      \ <sfile>:p:h/templates/model_scope.rb
+
+    autocmd BufNewFile
+      \ */spec/models/**/*_scope_spec.rb
+      \ 0r
+      \ <sfile>:p:h/templates/model_scope_spec.rb
+
     autocmd BufNewFile
       \ */app/services/*.rb
+      \,*/app/models/**/*_scope.rb
       \,*/spec/services/*_spec.rb
+      \,*/spec/models/**/*_scope_spec.rb
       \ %substitute#\[:CLASSNAME:\]#
       \\=ExtractClassNameFromFile(expand("%:p"))#g
   augroup END
