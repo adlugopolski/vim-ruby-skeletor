@@ -6,9 +6,8 @@ require_relative "../support/vim.rb"
 RSpec.describe Parser::Runner do
   using Squish
 
-  let(:service) { described_class.new(object, file) }
+  let(:service) { described_class.new(object) }
   let(:object) { "SomeObject" }
-  let(:file) { "pathname" }
 
   before do
     allow(Parser).to receive_messages(call: "app/services/file.rb")
