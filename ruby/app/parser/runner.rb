@@ -1,4 +1,5 @@
 require_relative "../parser.rb"
+require_relative "./performer.rb"
 require_relative "../vim_aliases.rb"
 
 class Parser::Runner
@@ -11,13 +12,7 @@ class Parser::Runner
   end
 
   def call
-    if pathname.length.zero?
-      VimC %Q{echo "Can't extract any Class name from current line."}
-    else
-      FileUtils.mkdir_p File.dirname(pathname)
-      VimC %Q{echo "Opening: #{pathname}"}
-      VimC %Q{silent exec "tabe " . "#{pathname}" | execute ":redraw!"}
-    end
+    Parser::Performer.call(pathname)
   end
 
   private
