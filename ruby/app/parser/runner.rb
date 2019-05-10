@@ -6,8 +6,9 @@ class Parser::Runner
     new(*args).call
   end
 
-  def initialize(line)
+  def initialize(line, current_file)
     self.line = line
+    self.current_file = current_file
   end
 
   def call
@@ -22,7 +23,7 @@ class Parser::Runner
 
   private
 
-  attr_accessor :line
+  attr_accessor :line, :current_file
 
   def pathname
     @_pathname ||= Parser.call(line)
