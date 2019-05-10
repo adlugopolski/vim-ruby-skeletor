@@ -30,11 +30,27 @@ RSpec.describe Parser do
       end
     end
 
-    context "with unscoped name" do
-      let(:code) { "  result_from(Something).first" }
+    context "with blank prefix" do
+      let(:service) { described_class.new(code, prefix: "") }
 
-      it "returns sample path" do
-        expect(service.call).to eq "app/services/something.rb"
+      context "with unscoped name" do
+        let(:code) { "  result_from(Something).first" }
+
+        it "returns sample path" do
+          expect(service.call).to eq "something.rb"
+        end
+      end
+    end
+
+    context "with custom prefix" do
+      let(:service) { described_class.new(code, prefix: "lib") }
+
+      context "with unscoped name" do
+        let(:code) { "  result_from(Something).first" }
+
+        it "returns sample path" do
+          expect(service.call).to eq "lib/something.rb"
+        end
       end
     end
   end
