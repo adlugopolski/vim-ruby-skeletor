@@ -11,7 +11,7 @@ endfunction
 
 function! CreateNewRelativeFileFromConstantInCurrentLine()
   call RubyRequireRelative("parser/relative_runner.rb")
-  ruby Parser::RelativeRunner.call VimE("getline('.')"), VimE("expand(':p')")
+  ruby Parser::RelativeRunner.call VimE("getline('.')"), VimE("expand('%:p')")
 endfunction
 
 function! ExtractClassNameFromFile(filePath)
