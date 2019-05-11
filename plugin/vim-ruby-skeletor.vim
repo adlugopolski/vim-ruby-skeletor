@@ -56,8 +56,11 @@ if has("autocmd")
     autocmd BufNewFile
       \ */app/services/*.rb
       \,*/app/models/**/*_scope.rb
+      \,*/app/controllers/**/*_facade.rb
+      \,*/app/controllers/**/*_action.rb
       \,*/spec/services/*_spec.rb
       \,*/spec/models/**/*_scope_spec.rb
+      \,*/spec/controllers/**/*_spec.rb
       \ %substitute#\[:CLASSNAME:\]#
       \\=ExtractClassNameFromFile(expand("%:p"))#g
   augroup END
