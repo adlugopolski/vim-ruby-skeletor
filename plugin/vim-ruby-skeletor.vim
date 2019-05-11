@@ -9,6 +9,11 @@ function! CreateNewFileFromConstantInCurrentLine()
   ruby Parser::Runner.call VimE("getline('.')")
 endfunction
 
+function! CreateNewRelativeFileFromConstantInCurrentLine()
+  call RubyRequireRelative("parser/relative_runner.rb")
+  ruby Parser::RelativeRunner.call VimE("getline('.')"), VimE("expand(':p')")
+endfunction
+
 function! ExtractClassNameFromFile(filePath)
   call  RubyRequireRelative("extractor/runner.rb")
   ruby VimR Extractor.call VimE("a:filePath")
@@ -47,3 +52,4 @@ if has("autocmd")
 endif
 
 nnoremap <Leader>nf :call CreateNewFileFromConstantInCurrentLine()<cr>
+nnoremap <Leader>nt :call CreateNewRelativeFileFromConstantInCurrentLine()<cr>
