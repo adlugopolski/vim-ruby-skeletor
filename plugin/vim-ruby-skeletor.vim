@@ -37,6 +37,18 @@ if has("autocmd")
       \ <sfile>:p:h/templates/model_scope.rb
 
     autocmd BufNewFile
+      \ */app/controllers/**/*_facade.rb
+      \,*/app/controllers/**/*_action.rb
+      \ 0r
+      \ <sfile>:p:h/templates/action.rb
+
+    autocmd BufNewFile
+      \ */spec/controllers/**/*_facade_spec.rb
+      \,*/spec/controllers/**/*_action_spec.rb
+      \ 0r
+      \ <sfile>:p:h/templates/action_spec.rb
+
+    autocmd BufNewFile
       \ */spec/models/**/*_scope_spec.rb
       \ 0r
       \ <sfile>:p:h/templates/model_scope_spec.rb
