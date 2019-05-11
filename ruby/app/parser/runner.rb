@@ -20,6 +20,6 @@ class Parser::Runner
   attr_accessor :line
 
   def pathname
-    @_pathname ||= Parser.call(line)
+    Parser.call(line)
   end
 end
