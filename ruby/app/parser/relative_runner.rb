@@ -21,6 +21,10 @@ class Parser::RelativeRunner
   attr_accessor :line, :current_file
 
   def pathname
-    Parser.call(line)
+    Parser.call(line, prefix: prefix)
+  end
+
+  def prefix
+    current_file.sub(/\.rb$/, "")
   end
 end

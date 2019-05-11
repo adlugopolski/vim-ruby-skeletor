@@ -8,7 +8,7 @@ RSpec.describe Parser::RelativeRunner do
 
   let(:service) { described_class.new(object, file) }
   let(:object) { "SomeObject" }
-  let(:file) { "/home/jdoe/project/app/model/user.rb" }
+  let(:file) { "/project/app/model/user.rb" }
 
   before do
     allow(Parser::Performer).to receive(:call)
@@ -22,6 +22,12 @@ RSpec.describe Parser::RelativeRunner do
       expect(Parser::Performer)
         .to have_received(:call)
         .with(:parser)
+    end
+
+    it "extracts the prefix from current_file" do
+      expect(Parser)
+        .to have_received(:call)
+        .with("SomeObject", prefix: "/project/app/model/user")
     end
   end
 end
