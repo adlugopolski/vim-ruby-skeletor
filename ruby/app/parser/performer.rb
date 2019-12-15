@@ -1,3 +1,4 @@
+require "fileutils"
 require_relative "../parser.rb"
 require_relative "../vim_aliases.rb"
 
