@@ -3,8 +3,8 @@ require_relative "underscore.rb"
 class Parser
   using Underscore
 
-  def self.call(*args)
-    new(*args).call
+  def self.call(*args, **kwargs)
+    new(*args, **kwargs).call
   end
 
   def initialize(code, prefix: default_prefix)
